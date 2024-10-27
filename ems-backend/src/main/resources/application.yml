@@ -1,0 +1,13 @@
+server:
+  port: 8060
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ems
+    username: postgres
+    password: root
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
