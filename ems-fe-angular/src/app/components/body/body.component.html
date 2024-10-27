@@ -1,0 +1,73 @@
+<div class="container mt-5">
+    <button class="btn btn-primary btn-sm float-end mt-2" id="create-event-button" (click)="openEmployeeCreateForm()">Add Employee
+    </button>    
+    <div class="table-container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let employee of employees">
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.lastName}}</td>
+                    <td>{{employee.email}}</td>    
+                    <td> 
+                        <div id="events-actions-container">
+                          <button [disabled]="!isAdmin()"
+                            class="btn btn-info" (click)="openUpdateEmployeeForm(employee)">Update 
+                            <!-- <i>Update</i> -->
+                          </button>
+                          <button [disabled]="!isAdmin()"
+                            class="btn btn-danger" style="margin-left: 10px;" (click)="deleteEmployee(employee)">Delete
+                            <!-- <i class="fa fa-trash">Delete</i> -->
+                          </button>
+                        </div>
+                      </td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+
+    <div class="modal" tabindex="-1" [ngClass]="{show: showEmployeeForm}" style="display: block" *ngIf="showEmployeeForm">
+        <div id="createEmployeeForm" class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{isUpdate ? 'Update Employee' : 'Add Employee'}}</h5>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" id="firstName" class="form-control" formControlName="firstName" />
+                            <div *ngIf="employeeForm.get('firstName')?.invalid && employeeForm.get('firstName')?.touched"
+                                class="text-danger mt-2">First Name is required</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" id="lastName" class="form-control" formControlName="lastName" />
+                            <div *ngIf="employeeForm.get('lastName')?.invalid && employeeForm.get('lastName')?.touched"
+                                class="text-danger mt-2">Last Name is required</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control" formControlName="email" />
+                            <div *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched"
+                                class="text-danger mt-2">Valid Email is required</div>
+                        </div>
+                        <input type="hidden" formControlName="id">
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid"> {{ isUpdate ? 'Update' : 'Save' }} </button>
+                            <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

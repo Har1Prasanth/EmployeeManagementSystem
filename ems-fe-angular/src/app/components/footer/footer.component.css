@@ -1,0 +1,14 @@
+.fixed-bottom {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.footer {
+    position: absolute;
+    background-color: black;
+    text-align: center;
+    color: white;
+}

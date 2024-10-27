@@ -1,0 +1,47 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+  }
+  
+  nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .user-controls {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-right: 5px; 
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .logout-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .user-button:hover {
+    opacity: 0.8;
+  }
+  
+  .logout-button:hover {
+    background-color: #d32f2f;
+  }
+  
