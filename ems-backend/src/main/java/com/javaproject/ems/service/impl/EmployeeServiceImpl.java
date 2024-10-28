@@ -22,6 +22,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeDto createEmployee(EmployeeDto employeeDto) {
 
+        employeeDto.setActive(true); //To Set new employees to Active Status
         Employee employee = employeeRepository.save(EmployeeMapper.mapToEmployee(employeeDto));
         return EmployeeMapper.mapToEmployeeDto(employee);
 
@@ -51,6 +52,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setFirstName(updatedEmployeeDto.getFirstName());
         employee.setLastName(updatedEmployeeDto.getLastName());
         employee.setEmail(updatedEmployeeDto.getEmail());
+        employee.setDepartment(updatedEmployeeDto.getDepartment());
+        employee.setRole(updatedEmployeeDto.getRole());
+        employee.setActive(updatedEmployeeDto.isActive());
         employeeRepository.save(employee);
         return EmployeeMapper.mapToEmployeeDto(employee);
     }
@@ -63,6 +67,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         if(employeeDto.getFirstName()!=null) exisitingEmployee.setFirstName(employeeDto.getFirstName());
         if(employeeDto.getLastName()!=null) exisitingEmployee.setLastName(employeeDto.getLastName());
         if(employeeDto.getEmail()!=null) exisitingEmployee.setEmail(employeeDto.getEmail());
+        if(employeeDto.getDepartment()!=null) exisitingEmployee.setDepartment(employeeDto.getDepartment());
+        if(employeeDto.getRole()!=null) exisitingEmployee.setRole(employeeDto.getRole());
+        exisitingEmployee.setActive(employeeDto.isActive());
         employeeRepository.save(exisitingEmployee);
         return EmployeeMapper.mapToEmployeeDto(exisitingEmployee);
     }

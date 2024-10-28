@@ -1,4 +1,4 @@
-package com.javaproject.ems.api.controller;
+package com.javaproject.ems.api;
 
 import com.javaproject.ems.dto.EmployeeDto;
 import org.springframework.http.ResponseEntity;

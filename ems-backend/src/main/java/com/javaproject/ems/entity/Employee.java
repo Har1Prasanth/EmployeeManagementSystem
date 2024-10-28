@@ -25,5 +25,10 @@ public class Employee {
     @Column(name = "email_id", nullable = false, unique = true)
     private String email;
 
+    private String department;
+    private String role;
+    @Column(name = "is_active")
+    private boolean isActive;
+
 
 }

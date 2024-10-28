@@ -1,5 +1,6 @@
 package com.javaproject.ems.api.controller;
 
+import com.javaproject.ems.api.EmployeeApi;
 import com.javaproject.ems.dto.EmployeeDto;
 import com.javaproject.ems.service.EmployeeService;
 import lombok.AllArgsConstructor;
@@ -12,7 +13,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @CrossOrigin("*")
-public class EmployeeController implements EmployeeApi{
+public class EmployeeController implements EmployeeApi {
 
     private EmployeeService employeeService;
 
