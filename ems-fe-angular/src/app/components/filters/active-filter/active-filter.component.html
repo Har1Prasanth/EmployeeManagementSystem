@@ -1,0 +1,31 @@
+<div class="selected-filter">
+    <h4 class="col-form-label" (click)="toggleFilter()">
+      Employment Status
+      <i
+        class="fa"
+        [ngClass]="{'fa-chevron-down': !isFilterExpanded, 'fa-chevron-up': isFilterExpanded}"
+        style="margin-left: 5px"></i>
+    </h4>
+  
+    <div class="selected-filter-content" [ngClass]="{collapsed: !isFilterExpanded}">
+      <div class="filter-item">
+        <input
+          type="checkbox"
+          id="filter-yes"
+          name="selectedSlotsYes"
+          (change)="onFilterChange('yes', $event)"
+          [checked]="active" />
+        <label for="filter-yes">Active</label>
+      </div>
+      <div class="filter-item">
+        <input
+          type="checkbox"
+          id="filter-no"
+          name="selectedSlotsNo"
+          (change)="onFilterChange('no', $event)"
+          [checked]="inactive" />
+        <label for="filter-no">Inactive</label>
+      </div>
+    </div>
+  </div>
+  

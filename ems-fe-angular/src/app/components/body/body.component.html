@@ -1,39 +1,96 @@
 <div class="container mt-5">
-    <button class="btn btn-primary btn-sm float-end mt-2" id="create-event-button" (click)="openEmployeeCreateForm()">Add Employee
-    </button>    
-    <div class="table-container">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>Email</th>
-                    <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let employee of employees">
-                    <td>{{employee.firstName}}</td>
-                    <td>{{employee.lastName}}</td>
-                    <td>{{employee.email}}</td>    
-                    <td> 
-                        <div id="events-actions-container">
-                          <button [disabled]="!isAdmin()"
-                            class="btn btn-info" (click)="openUpdateEmployeeForm(employee)">Update 
-                            <!-- <i>Update</i> -->
-                          </button>
-                          <button [disabled]="!isAdmin()"
-                            class="btn btn-danger" style="margin-left: 10px;" (click)="deleteEmployee(employee)">Delete
-                            <!-- <i class="fa fa-trash">Delete</i> -->
-                          </button>
-                        </div>
-                      </td>
-                </tr>
-              </tbody>
-        </table>
+    <div class="rounded-shadowed-box mt-2 pb-2">
+        <h5>
+            <button class="btn btn-link ps-0" type="button" (click)="toggleFilter()">
+                <i class="fa fa-filter"></i> Filter
+                <i class="fa"
+                    [ngClass]="{'fa-chevron-down': !areFiltersVisible, 'fa-chevron-up': areFiltersVisible}"></i>
+            </button>
+            <span *ngFor="let filter of selectedFilters" class="badge bg-secondary me-1"
+                style="font-weight: 500; font-size: 70%">
+                {{ filter }}
+            </span>
+            <button id="clear-filter-button" class="btn btn-link ms-1" (click)="clearFilter()" title="clear filter">
+                <i class="fa fa-times" *ngIf="selectedFilters.length > 0"></i>
+            </button>
+        </h5>
+        <div class="filters-container" *ngIf="areFiltersVisible">
+            <app-text-filter [value]="searchQuery" (update)="onTextFilterChanges($event)"></app-text-filter>
+            <!-- Department Filter -->
+            <app-department-filter [options]="availableDepartments" [selectedValues]="selectedDepartments"
+                (selectionChange)="onFilterChange()">
+            </app-department-filter>
+
+            <!-- Role Filter -->
+            <app-roles-filter [options]="availableRoles" [selectedValues]="selectedRoles"
+                (selectionChange)="onFilterChange()">
+            </app-roles-filter>
+
+            <app-active-filter
+            [active]="active"
+            [inactive]="inactive"
+            (filterChange)="onSelectedSlotFilterChange($event)">
+          </app-active-filter>
+
+        </div>
+    </div>
+    <div class="rounded-shadowed-box mt-2 pb-2">
+        <h6 class="mb-2">
+            Employees <span>({{ filteredEmployees.length }}/{{ employees.length }})</span>
+        </h6>
+
+        <div class="d-flex justify-content-end mt-4 mb-3">
+            <button class="btn btn-primary btn-sm" id="create-event-button" (click)="openEmployeeCreateForm()">Add
+                Employee</button>
+        </div>
+
+        <div class="table-responsive" style="max-height: 400px; overflow-y: auto; overflow-x: auto;">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Role</th>
+                        <th>Active</th>
+                        <th style="width: 250px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of filteredEmployees">
+                        <td>{{employee.firstName}}</td>
+                        <td>{{employee.lastName}}</td>
+                        <td>{{employee.email}}</td>
+                        <td>{{employee.department}}</td>
+                        <td>{{employee.role}}</td>
+                        <td>
+                            <span *ngIf="employee.active" class="text-success">
+                                <i class="fas fa-check-circle"></i>
+                            </span>
+                            <span *ngIf="!employee.active" class="text-danger">
+                                <i class="fas fa-times-circle"></i>
+                            </span>
+                        </td>
+                        <td>
+                            <div id="events-actions-container">
+                                <button [disabled]="!isAdmin()" class="btn btn-info"
+                                    (click)="openUpdateEmployeeForm(employee)">Update
+                                </button>
+                                <button [disabled]="!isAdmin()" class="btn btn-danger" style="margin-left: 10px;"
+                                    (click)="deleteEmployee(employee)">Delete
+
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <div class="modal" tabindex="-1" [ngClass]="{show: showEmployeeForm}" style="display: block" *ngIf="showEmployeeForm">
+    <div class="modal" tabindex="-1" [ngClass]="{show: showEmployeeForm}" style="display: block"
+        *ngIf="showEmployeeForm">
         <div id="createEmployeeForm" class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -60,9 +117,29 @@
                             <div *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched"
                                 class="text-danger mt-2">Valid Email is required</div>
                         </div>
+                        <div class="mb-3">
+                            <label for="department" class="form-label">Department</label>
+                            <input type="text" id="department" class="form-control" formControlName="department" />
+                            <div *ngIf="employeeForm.get('department')?.invalid && employeeForm.get('department')?.touched"
+                                class="text-danger mt-2">Department is required</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Role</label>
+                            <input type="text" id="role" class="form-control" formControlName="role" />
+                            <div *ngIf="employeeForm.get('role')?.invalid && employeeForm.get('role')?.touched"
+                                class="text-danger mt-2">Role is required</div>
+                        </div>
+                        <div class="mb-3" *ngIf="isUpdate">
+                            <label for="status" class="form-label">Employment Status</label>
+                            <select id="status" class="form-control" formControlName="active">
+                              <option value="true">Active</option>
+                              <option value="false">Inactive</option>
+                            </select>
+                          </div>
                         <input type="hidden" formControlName="id">
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid"> {{ isUpdate ? 'Update' : 'Save' }} </button>
+                            <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid"> {{ isUpdate
+                                ? 'Update' : 'Save' }} </button>
                             <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
                         </div>
                     </form>

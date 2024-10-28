@@ -1,0 +1,23 @@
+
+  <div class="roles-filter">
+    <h4 class="col-form-label" (click)="toggleFilter()">
+      Roles Filter
+      <i
+        class="fa"
+        [ngClass]="{'fa-chevron-down': !isFilterExpanded, 'fa-chevron-up': isFilterExpanded}"
+        style="margin-left: 5px"></i>
+    </h4>
+  
+    <div class="roles-filter-content" [ngClass]="{collapsed: !isFilterExpanded}">
+      <div *ngFor="let group of options" class="filter-item">
+        <input
+          type="checkbox"
+          [id]="group"
+          [value]="group"
+          
+        [checked]="selectedValues.includes(group)"
+        (change)="onCheckboxChange($event, group)" />
+        <label [for]="group">{{ group }}</label>
+      </div>
+    </div>
+  </div>

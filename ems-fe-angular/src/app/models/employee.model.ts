@@ -4,4 +4,7 @@ export class Employee {
     firstName?: string
     lastName?: string
     email?: string
+    department?: string
+    role?: string
+    active?: boolean
 }

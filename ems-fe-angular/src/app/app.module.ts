@@ -9,6 +9,10 @@ import { BodyComponent } from './components/body/body.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+import { TextFilterComponent } from './components/filters/text-filter/text-filter.component';
+import { RolesFilterComponent } from './components/filters/roles-filter/roles-filter.component';
+import { DepartmentFilterComponent } from './components/filters/department-filter/department-filter.component';
+import { ActiveFilterComponent } from './components/filters/active-filter/active-filter.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { LoginComponent } from './components/login/login.component';
     HeaderComponent,
     FooterComponent,
     BodyComponent,
-    LoginComponent
+    LoginComponent,
+    TextFilterComponent,
+    RolesFilterComponent,
+    DepartmentFilterComponent,
+    ActiveFilterComponent
   ],
   imports: [
     BrowserModule,

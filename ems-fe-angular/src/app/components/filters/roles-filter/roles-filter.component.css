@@ -1,0 +1,52 @@
+.roles-filter {
+    padding: 10px;
+    max-width: 300px;
+    height: 175px;
+    display: inline-block;
+    margin-right: 20px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .roles-filter h4 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: transparent;
+    color: #333;
+    padding: 10px;
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .roles-filter {
+    max-height: 140px;
+    overflow-y: auto;
+    padding: 10px;
+    transition: max-height 0.3s ease;
+  }
+  
+  .roles-filter-content.collapsed {
+    max-height: 0;
+    padding: 0 10px;
+    overflow: hidden;
+  }
+  
+  .filter-item {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 8px;
+    margin-right: 12px;
+    width: 45%;
+  }
+  
+  .roles-filter input[type="checkbox"] {
+    margin-right: 6px;
+  }
+  
+  .roles-filter label {
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+  }
+  
