@@ -29,32 +29,32 @@ The system supports advanced filtering, search capabilities, and CRUD operations
 == **Frontend Demo Images**
 1) Login component
 
-image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page1.png[EMS Page 1, width=600, align=center]
+image::/ems-fe-angular/Demo_Pictures/EMS_Page1.png[EMS Page 1, width=600, align=center]
 
 2) Employee Management System Page which shows filters and employee data
 
-image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page2.png[EMS Page 2, width=600, align=center]
+image::/ems-fe-angular/Demo_Pictures/EMS_Page2.png[EMS Page 2, width=600, align=center]
 
 3) Add Employee Form to add new employee to Backend DB
 
-image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page7.png[EMS Page 7, width=600, align=center]
+image::/ems-fe-angular/Demo_Pictures/EMS_Page7.png[EMS Page 7, width=600, align=center]
 
 4) Update Employee Form to update employee details (Button enabled only for **Admin** Users)
 
-image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page8.png[EMS Page 8, width=600, align=center]
+image::/ems-fe-angular/Demo_Pictures/EMS_Page8.png[EMS Page 8, width=600, align=center]
 
 5) Update and Delete button Disabled for Normal Users
 
-image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page3.png[EMS Page 3, width=600, align=center]
+image::/ems-fe-angular/Demo_Pictures/EMS_Page3.png[EMS Page 3, width=600, align=center]
 
 6) Employment Status filtering
 
-image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page4.png[EMS Page 4, width=600, align=center]
+image::/ems-fe-angular/Demo_Pictures/EMS_Page4.png[EMS Page 4, width=600, align=center]
 
 7) Search Query filtering
 
-image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page5.png[EMS Page 5, width=600, align=center]
+image::/ems-fe-angular/Demo_Pictures/EMS_Page5.png[EMS Page 5, width=600, align=center]
 
 8) Department and Roles filtering
 
-image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page6.png[EMS Page 6, width=600, align=center]
+image::/ems-fe-angular/Demo_Pictures/EMS_Page6.png[EMS Page 6, width=600, align=center]
