@@ -1,0 +1,60 @@
+= **Employee Management Service**
+
+== **Introduction**
+
+The Employmee Management Service is a full-stack application designed to streamline the management of employee data.
+It consists of both frontend and backend components, allowing users to efficiently manage employee information through a user-friendly interface while leveraging a robust backend for data storage and management.
+The system supports advanced filtering, search capabilities, and CRUD operations (Create, Read, Update, Delete) on employee records.
+
+== **Frontend (FE)**
+
+* Developed using Angular and styled with Bootstrap for responsive design.
+* **_Login Component_**: Includes a login system that supports normal users and admin roles.
+** Normal Users: Can view employee details and search/filter employees.
+** Admin Users: Can perform full CRUD operations (add, update, delete).
+* _Role-based Access Control_: Only admins are allowed to perform update and delete operations via the frontend, while normal users can only view and search employee data.
+* Provides user-friendly forms for adding and updating employee details such as first name, last name, email, department, role, and status (active/inactive).
+* Implements filtering and search capabilities to quickly find employees based on specific criteria.
+* Displays a list of employees with the ability to edit, delete, or view details
+* Offers a dynamic form to include fields like department and role when adding or updating an employee.
+
+== **Backend (BE)**
+
+* Built using Spring Boot with Kotlin (or Java).
+* Provides a RESTful API that supports CRUD operations on employee records.
+* Data is persisted in a MySQL/PostgreSQL database.
+* Includes input validation and error handling to ensure data integrity.
+* Exceptions are handled globally with  user-friendly exception messages
+
+== **Frontend Demo Images**
+1) Login component
+
+image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page1.png[EMS Page 1, width=600, align=center]
+
+2) Employee Management System Page which shows filters and employee data
+
+image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page2.png[EMS Page 2, width=600, align=center]
+
+3) Add Employee Form to add new employee to Backend DB
+
+image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page7.png[EMS Page 7, width=600, align=center]
+
+4) Update Employee Form to update employee details (Button enabled only for **Admin** Users)
+
+image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page8.png[EMS Page 8, width=600, align=center]
+
+5) Update and Delete button Disabled for Normal Users
+
+image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page3.png[EMS Page 3, width=600, align=center]
+
+6) Employment Status filtering
+
+image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page4.png[EMS Page 4, width=600, align=center]
+
+7) Search Query filtering
+
+image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page5.png[EMS Page 5, width=600, align=center]
+
+8) Department and Roles filtering
+
+image::/Users/HDURAIS/Documents/Project/FullStackCrud-EMS-SpringBoot-ReactJs/ems-fe-angular/Demo_Pictures/EMS_Page6.png[EMS Page 6, width=600, align=center]
