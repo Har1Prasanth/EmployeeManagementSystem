@@ -20,11 +20,11 @@ The system supports advanced filtering, search capabilities, and CRUD operations
 
 == **Backend (BE)**
 
-* Built using Spring Boot with Kotlin (or Java).
+* Built using Spring Boot with Java.
 * Provides a RESTful API that supports CRUD operations on employee records.
-* Data is persisted in a MySQL/PostgreSQL database.
+* Data is persisted in a PostgreSQL database.
 * Includes input validation and error handling to ensure data integrity.
-* Exceptions are handled globally with  user-friendly exception messages
+* Exceptions are handled globally with user-friendly exception messages
 
 == **Frontend Demo Images**
 1) Login component
